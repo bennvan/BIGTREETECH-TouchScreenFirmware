@@ -182,6 +182,7 @@ extern "C" {
 #define LANG_KEY_ONBOARDSD                    "label_onboardsd:"
 #define LANG_KEY_READ_ONBOARDSD_ERROR         "label_read_onboardsd_error:"
 #define LANG_KEY_FILAMENT_RUNOUT              "label_filament_runout:"
+#define LANG_KEY_HOST_START                   "label_host_start:"
 
 // Steppers, Print, Probe Process Commands / Status / Info
 #define LANG_KEY_DISABLE_STEPPERS             "label_disable_steppers:"

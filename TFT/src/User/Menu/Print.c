@@ -363,7 +363,8 @@ void menuPrint(void)
       {ICON_NULL,                    LABEL_NULL},
       {ICON_NULL,                    LABEL_NULL},
       {ICON_SCREEN_INFO,             LABEL_PREVIOUS_PRINT_DATA},
-      {ICON_NULL,                    LABEL_NULL},
+      //{ICON_SCREEN_INFO,             LABEL_PREVIOUS_PRINT_DATA},
+      {ICON_OCTOPRINT,               LABEL_HOST_START},
       {ICON_NULL,                    LABEL_NULL},
       {ICON_BACK,                    LABEL_BACK},
     }
@@ -426,10 +427,14 @@ void menuPrint(void)
           goto selectEnd;
         }
         break;
-
       case KEY_ICON_4:
         if (infoPrintSummary.name[0] != 0)
           printSummaryPopup();
+        break;
+      case KEY_ICON_5:
+        mustStoreCmd("M118 A1 P0 //action:start\n");
+        mustStoreCmd("M118 A1 P0 //action:print_start\n");
+        goto selectEnd;
         break;
 
       case KEY_ICON_7:

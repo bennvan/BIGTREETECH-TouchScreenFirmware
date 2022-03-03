@@ -175,6 +175,7 @@
     #define STRING_ONBOARDSD              "OnboardSD"
     #define STRING_READ_ONBOARDSD_ERROR   "Read Onboard SD card error!"
     #define STRING_FILAMENT_RUNOUT        "Filament runout!"
+    #define STRING_HOST_START             "Host start"
 
     // Steppers, Print, Probe Process Commands / Status / Info
     #define STRING_DISABLE_STEPPERS       "Disarm All"
@@ -301,6 +302,7 @@
     #define STRING_TOUCHSCREEN_ADJUST     "TSC Adjust"
     #define STRING_MORE                   "More"
     #define STRING_SCREEN_INFO            "Info"
+    #define STRING_OCTOPRINT              "Host start"         
     #define STRING_BG_COLOR               "Background color"
     #define STRING_FONT_COLOR             "Font color"
     #define STRING_PERCENTAGE             "Percentage"
