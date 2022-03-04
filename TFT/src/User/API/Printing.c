@@ -551,8 +551,17 @@ bool printPause(bool isPause, PAUSE_TYPE pauseType)
   switch (infoFile.source)
   {
     case REMOTE_HOST:  // nothing to do
-      loopDetected = false;
-      return true;
+      if (isPause)  // pause
+      {
+        // store pause type only on pause
+        infoPrinting.pauseType = pauseType;
+        mustStoreCmd("M10000 P\n");
+      }
+      else //resume 
+      {
+        mustStoreCmd("M10000 R\n");
+      }
+      break;
 
     case BOARD_SD_REMOTE:
     case BOARD_SD:

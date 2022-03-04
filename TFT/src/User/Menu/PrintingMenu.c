@@ -516,6 +516,11 @@ void stopConfirm(void)
   CLOSE_MENU();
 }
 
+void stopHost(void)
+{
+  mustStoreCmd("M10000 C\n");
+}
+
 void printSummaryPopup(void)
 {
   uint8_t hour = infoPrintSummary.time / 3600;
@@ -790,8 +795,9 @@ void menuPrinting(void)
       case PS_KEY_6:
         if (lastPrinting == true)  // if printing
         { // Pause button
-          if (getHostDialog() || isRemoteHostPrinting())
-            addToast(DIALOG_TYPE_ERROR, (char *)textSelect(LABEL_BUSY));
+          if (getHostDialog() || isRemoteHostPrinting()) {
+            printPause(!isPaused(), PAUSE_NORMAL);
+          }
           else if (getPrintRunout())
             addToast(DIALOG_TYPE_ERROR, (char *)textSelect(LABEL_FILAMENT_RUNOUT));
           else
@@ -818,7 +824,8 @@ void menuPrinting(void)
         {
           if (isRemoteHostPrinting())
           {
-            addToast(DIALOG_TYPE_ERROR, (char *)textSelect(LABEL_BUSY));
+            setDialogText(LABEL_WARNING, LABEL_STOP_PRINT, LABEL_CONFIRM, LABEL_CANCEL);
+            showDialog(DIALOG_TYPE_ALERT, stopHost, NULL, NULL);
           }
           else
           {

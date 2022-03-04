@@ -432,8 +432,7 @@ void menuPrint(void)
           printSummaryPopup();
         break;
       case KEY_ICON_5:
-        mustStoreCmd("M118 A1 P0 //action:start\n");
-        mustStoreCmd("M118 A1 P0 //action:print_start\n");
+        mustStoreCmd("M10000 S\n");
         goto selectEnd;
         break;
 
