@@ -318,7 +318,7 @@ void hostActionCommands(void)
     if (infoMachineSettings.firmwareType == FW_MARLIN)
     {
       if (ack_seen(":paused"))  // if paused with ADVANCED_PAUSE_FEATURE enabled in Marlin (:paused),
-        hostDialog = true;      // disable Resume/Pause button in the Printing menu
+        hostDialog = false;      // disable Resume/Pause button in the Printing menu
       //else                      // otherwise, if ADVANCED_PAUSE_FEATURE is disabled in Marlin (:pause),
       //  hostDialog = false;     // enable Resume/Pause button in the Printing menu
     }

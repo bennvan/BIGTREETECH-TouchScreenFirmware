@@ -796,7 +796,7 @@ void menuPrinting(void)
         if (lastPrinting == true)  // if printing
         { // Pause button
           if (getHostDialog() || isRemoteHostPrinting()) {
-            printPause(!isPaused(), PAUSE_NORMAL);
+            printPause(!isPaused(), PAUSE_EXTERNAL);
           }
           else if (getPrintRunout())
             addToast(DIALOG_TYPE_ERROR, (char *)textSelect(LABEL_FILAMENT_RUNOUT));
