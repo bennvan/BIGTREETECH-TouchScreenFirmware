@@ -291,6 +291,15 @@ void hostActionCommands(void)
     { // format: Time Left <XX>h<YY>m<ZZ>s (e.g. Time Left 02h04m06s)
       parsePrintRemainingTime((char *)dmaL2Cache + ack_index);
     }
+    else if (ack_seen("Layer"))
+    { // format: Layer <layer num>
+      setPrintLayerNumber(ack_value());
+    }
+    else if (ack_seen("Height"))
+    { // format: Height <height>
+      coordinateSetAxisActual(Z_AXIS, ack_value());
+      coordinateSetAxisTarget(Z_AXIS, ack_value());
+    }
     else
     {
       statusScreen_setMsg((uint8_t *)magic_echo, (uint8_t *)dmaL2Cache + index);  // always display the notification on status screen
