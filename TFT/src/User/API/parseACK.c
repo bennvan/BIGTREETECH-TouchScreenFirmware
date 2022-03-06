@@ -291,6 +291,10 @@ void hostActionCommands(void)
     { // format: Time Left <XX>h<YY>m<ZZ>s (e.g. Time Left 02h04m06s)
       parsePrintRemainingTime((char *)dmaL2Cache + ack_index);
     }
+    else if (ack_seen("Layer Count"))
+    { // format: Layer Count <tot layer count>
+      setPrintLayerCount(ack_value());
+    }
     else if (ack_seen("Layer"))
     { // format: Layer <layer num>
       setPrintLayerNumber(ack_value());
